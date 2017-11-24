@@ -63,8 +63,8 @@ public class POS_USER extends javax.swing.JFrame {
         backIcon = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Procees = new javax.swing.JButton();
-        addToCard = new javax.swing.JButton();
+        Proceed = new javax.swing.JButton();
+        addToCart = new javax.swing.JButton();
         romoveToCard = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         stocksTable = new javax.swing.JTable();
@@ -158,21 +158,21 @@ public class POS_USER extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Heiti SC", 1, 18)); // NOI18N
         jLabel4.setText("Status");
 
-        Procees.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
-        Procees.setForeground(new java.awt.Color(153, 153, 153));
-        Procees.setText("Process");
-        Procees.addActionListener(new java.awt.event.ActionListener() {
+        Proceed.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
+        Proceed.setForeground(new java.awt.Color(153, 153, 153));
+        Proceed.setText("Proceed");
+        Proceed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProceesActionPerformed(evt);
+                ProceedActionPerformed(evt);
             }
         });
 
-        addToCard.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
-        addToCard.setForeground(new java.awt.Color(153, 153, 153));
-        addToCard.setText("Add to card");
-        addToCard.addActionListener(new java.awt.event.ActionListener() {
+        addToCart.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
+        addToCart.setForeground(new java.awt.Color(153, 153, 153));
+        addToCart.setText("Add to cart");
+        addToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToCardActionPerformed(evt);
+                addToCartActionPerformed(evt);
             }
         });
 
@@ -228,7 +228,7 @@ public class POS_USER extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 977, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -237,34 +237,30 @@ public class POS_USER extends javax.swing.JFrame {
                         .addGap(30, 30, 30))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(backIcon)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 22, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(searchItem, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(addToCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(qtyItem, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
-                                .addGap(218, 218, 218)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(addToCard, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(QtyInput)))
-                        .addGap(63, 63, 63)))
-                .addComponent(Procees, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(romoveToCard)
-                .addGap(22, 22, 22))
+                                    .addComponent(searchItem, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel7)
+                                    .addComponent(qtyItem, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(Proceed, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(romoveToCard)))
+                .addGap(0, 22, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(324, Short.MAX_VALUE)
+                .addComponent(QtyInput)
+                .addGap(676, 676, 676))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,35 +273,32 @@ public class POS_USER extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(romoveToCard, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Procees, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(searchItem, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(qtyItem, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(addToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Proceed, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(searchItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(qtyItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(addToCard, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)))
-                .addComponent(QtyInput)
-                .addGap(10, 10, 10)
-                .addComponent(backIcon)
-                .addGap(42, 42, 42))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(romoveToCard)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(QtyInput)
+                        .addGap(10, 10, 10)
+                        .addComponent(backIcon)
+                        .addGap(42, 42, 42))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -337,7 +330,7 @@ public class POS_USER extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchItemActionPerformed
 
-    private void addToCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCardActionPerformed
+    private void addToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartActionPerformed
         
         itemCode = searchItem.getText();
         quantity = qtyItem.getText();
@@ -472,7 +465,7 @@ public class POS_USER extends javax.swing.JFrame {
          }
            
           
-    }//GEN-LAST:event_addToCardActionPerformed
+    }//GEN-LAST:event_addToCartActionPerformed
 
    
     private void qtyItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtyItemActionPerformed
@@ -490,25 +483,23 @@ public class POS_USER extends javax.swing.JFrame {
         
     }//GEN-LAST:event_romoveToCardActionPerformed
 
-    private void ProceesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProceesActionPerformed
+    private void ProceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProceedActionPerformed
         //save data to text file
         String FILE_SALES = "src/data/Sales.txt";
-        String FILE_POS = "src/data/POS.txt";
-        BufferedWriter bf =null;
+        
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);
         TableModel m = stocksTable.getModel();
         
-        BufferedWriter bw_pos = null;
         BufferedWriter bw_sales = null;
         
         try{
                 
                File file_sales = new File(FILE_SALES);
-               File file = new File(FILE_POS);
+               
                double amount = 0;
-               bw_pos = new BufferedWriter(new FileWriter(FILE_POS , true));
+               
                bw_sales = new BufferedWriter(new FileWriter(FILE_SALES , true));   
                              
                 for(int i = 0 ; i < m.getRowCount() ; i++){
@@ -516,16 +507,15 @@ public class POS_USER extends javax.swing.JFrame {
                         if(j == 4){
                             bw_sales.write(m.getValueAt(i, j).toString());
                             bw_sales.write("\n");
-                            bw_pos.write(m.getValueAt(i, j).toString());
-                            bw_pos.write("\n");
+                            
                             amount += Double.parseDouble(m.getValueAt(i, j).toString());
                         }else{
                             if(j == 0){
                                 bw_sales.write(date + "," + m.getValueAt(i, j).toString() + ",");
-                                bw_pos.write(m.getValueAt(i, j).toString() + ",");
+                                
                             }else{
                                 bw_sales.write(m.getValueAt(i, j).toString() + ",");
-                                bw_pos.write(m.getValueAt(i, j).toString() + ",");
+                                
                             }
                         }                        
                         
@@ -539,7 +529,7 @@ public class POS_USER extends javax.swing.JFrame {
                 int option = JOptionPane.showConfirmDialog(null, message, "Amount paid : ", JOptionPane.OK_CANCEL_OPTION);
                 String paidStr = paid.getText();
                 double paidTotal = Double.parseDouble(paidStr);
-                double change = amount - paidTotal;
+                double change = paidTotal - amount;
                 
                 if (option == JOptionPane.OK_OPTION) {
                     if (paidTotal >= amount) {
@@ -556,14 +546,16 @@ public class POS_USER extends javax.swing.JFrame {
            } finally {
 			try {
 				bw_sales.close();
-                                bw_pos.close();
+                                
 			} catch (IOException e) {
 				
 				e.printStackTrace();
 			}
          
         }
-    }//GEN-LAST:event_ProceesActionPerformed
+        new POS_USER().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ProceedActionPerformed
 
     /**
      * @param args the command line arguments
@@ -601,9 +593,9 @@ public class POS_USER extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Procees;
+    private javax.swing.JButton Proceed;
     private javax.swing.JLabel QtyInput;
-    private javax.swing.JButton addToCard;
+    private javax.swing.JButton addToCart;
     private javax.swing.JButton backIcon;
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;

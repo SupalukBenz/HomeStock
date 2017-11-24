@@ -5,11 +5,17 @@
  */
 package homestock;
 
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -93,6 +99,11 @@ public class Add_Item extends javax.swing.JFrame {
         addPrice.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
 
         addStock.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
+        addStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addStockKeyPressed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jButton1.setText("ENTER");
@@ -208,13 +219,85 @@ public class Add_Item extends javax.swing.JFrame {
         itemprice = addPrice.getText();
         itemdescription = addDescription.getText();
         itemstocks = addStock.getText();
-        
+        String fileItem = "src/data/ItemsStock.txt";
+        List<String> checkItem = new ArrayList<String>();
+        List<String> checkName = new ArrayList<String>();
         if(itemcode == null || itemname == null || itemprice == null || itemdescription == null || itemstocks == null){
             JOptionPane.showMessageDialog(null , "Incomplete information");
             new Add_Item().setVisible(true);
             this.dispose();        
             
         }else{
+            
+            //read file for check namd admin
+           BufferedReader br = null;
+           BufferedReader br_name = null;
+           try{
+               File preRead = new File(fileItem);
+               br = new BufferedReader(new FileReader(preRead));
+               br_name = new BufferedReader(new FileReader(preRead));
+               String line = "";
+               int count = 0;
+                while((line = br.readLine()) != null){
+                    String[] str = line.split("/");                   
+                    checkItem.add(count , str[0]);
+                    checkName.add(count , str[1]);
+                    count++;
+                }
+                
+             br.close();
+               
+           }catch(IOException ioe){
+             ioe.printStackTrace();
+           }
+           
+           for(int i = 0 ; i < checkItem.size() ; i++){
+               if(itemcode.equals(checkItem.get(i))){
+                   while(true){
+                        JTextField newCode = new JTextField();
+                
+                        Object[] message = {"Input new item code" ,newCode};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Item code is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newCodeStr = newCode.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newCodeStr.equals(itemcode)) {
+                                JOptionPane.showMessageDialog(null, "Change item code = " + newCodeStr);
+                                itemcode = newCodeStr;
+                                break;
+                            }            
+                        }
+                    }
+                   
+               }
+           }
+           
+           for(int i = 0 ; i < checkName.size() ; i++){
+              
+               if(itemname.equals(checkName.get(i))){
+                    while(true){
+                        JTextField newName = new JTextField();
+                
+                        Object[] message = {"Input new item name" ,newName};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Item name is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newNameStr = newName.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newNameStr.equals(itemname)) {
+                                JOptionPane.showMessageDialog(null, "Change item name = " + newNameStr);
+                                itemname = newNameStr;
+                                break;
+                            }            
+                        }
+                    }    
+               }        
+                       
+           }
+            
            BufferedWriter bf =null;
            try{
                File file = new File("src/data/ItemsStock.txt");
@@ -238,6 +321,155 @@ public class Add_Item extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void addStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addStockKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        itemcode = addCode.getText();
+        itemname = addName.getText();
+        itemprice = addPrice.getText();
+        itemdescription = addDescription.getText();
+        itemstocks = addStock.getText();
+        String fileItem = "src/data/ItemsStock.txt";
+        List<String> checkItem = new ArrayList<String>();
+        List<String> checkName = new ArrayList<String>();
+        if(itemcode == null || itemname == null || itemprice == null || itemdescription == null || itemstocks == null){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
+            new Add_Item().setVisible(true);
+            this.dispose();        
+            
+        }else{
+           double priceDouble = Double.parseDouble(itemprice);
+           if(priceDouble <= 0){
+               while(true){
+                    JTextField newPriceText = new JTextField();               
+                    Object[] message = {"Input new price" , newPriceText};
+
+                    int option = JOptionPane.showConfirmDialog(null, message, "Price must be possitive", JOptionPane.OK_CANCEL_OPTION);
+                    String newPriceStr = newPriceText.getText();
+                    double newPrice = Double.parseDouble(newPriceStr);
+                
+                    if (option == JOptionPane.OK_OPTION) {
+                        if (newPrice > 0) {
+                            JOptionPane.showMessageDialog(null, "Change price = " + newPriceStr);
+                            itemprice = newPriceStr;
+                            break;
+                        }            
+                    }
+                }
+            }
+           
+           int stockDouble = Integer.parseInt(itemstocks);
+           if(stockDouble < 0){
+               while(true){
+                    JTextField newStockText = new JTextField();               
+                    Object[] message = {"Input new stock" , newStockText};
+
+                    int option = JOptionPane.showConfirmDialog(null, message, "Stock must be possitive", JOptionPane.OK_CANCEL_OPTION);
+                    String newStockStr = newStockText.getText();
+                    int newStock = Integer.parseInt(newStockStr);
+                
+                    if (option == JOptionPane.OK_OPTION) {
+                        if (newStock >= 0) {
+                            JOptionPane.showMessageDialog(null, "Change price = " + newStockStr);
+                            itemprice = newStockStr;
+                            break;
+                        }            
+                    }
+                }
+            }
+            
+            //read file for check namd admin
+           BufferedReader br = null;
+           BufferedReader br_name = null;
+           try{
+               File preRead = new File(fileItem);
+               br = new BufferedReader(new FileReader(preRead));
+               br_name = new BufferedReader(new FileReader(preRead));
+               String line = "";
+               int count = 0;
+                while((line = br.readLine()) != null){
+                    String[] str = line.split("/");                   
+                    checkItem.add(count , str[0]);
+                    checkName.add(count , str[1]);
+                    count++;
+                }
+                
+             br.close();
+               
+           }catch(IOException ioe){
+             ioe.printStackTrace();
+           }
+           
+           for(int i = 0 ; i < checkItem.size() ; i++){
+               if(itemcode.equals(checkItem.get(i))){
+                   while(true){
+                        JTextField newCode = new JTextField();
+                
+                        Object[] message = {"Input new item code" ,newCode};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Item code is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newCodeStr = newCode.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newCodeStr.equals(itemcode)) {
+                                JOptionPane.showMessageDialog(null, "Change item code = " + newCodeStr);
+                                itemcode = newCodeStr;
+                                break;
+                            }            
+                        }
+                    }
+                   
+               }
+           }
+           
+           for(int i = 0 ; i < checkName.size() ; i++){
+              
+               if(itemname.equals(checkName.get(i))){
+                    while(true){
+                        JTextField newName = new JTextField();
+                
+                        Object[] message = {"Input new item name" ,newName};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Item name is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newNameStr = newName.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newNameStr.equals(itemname)) {
+                                JOptionPane.showMessageDialog(null, "Change item name = " + newNameStr);
+                                itemname = newNameStr;
+                                break;
+                            }            
+                        }
+                    }    
+               }        
+                       
+           }
+            
+           BufferedWriter bf =null;
+           try{
+               File file = new File("src/data/ItemsStock.txt");
+               bf = new BufferedWriter(new FileWriter(file , true));
+               
+               bf.write(itemcode+"/"+itemname+"/"+itemdescription+"/"+itemprice+"/"+itemstocks);
+               bf.write("\n");
+               bf.close();
+           }catch(Exception e){
+               e.printStackTrace();
+           } finally {
+			try {
+				bf.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+        }
+        new ITEMS_ADMIN().setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_addStockKeyPressed
 
     /**
      * @param args the command line arguments

@@ -5,12 +5,17 @@
  */
 package homestock;
 
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -65,6 +70,11 @@ public class Add_account extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         AgeAdd.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
+        AgeAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                AgeAddKeyPressed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jButton1.setText("ENTER");
@@ -204,19 +214,65 @@ public class Add_account extends javax.swing.JFrame {
         firstname = FirstnameAdd.getText();
         lastname = LastnameAdd.getText();
         age = AgeAdd.getText();
-        
+        String fileUser = "src/data/Username.txt";
+        List<String> checkName = new ArrayList<String>();
         if(user == null || password == null || firstname == null || lastname == null || age == null){
             JOptionPane.showMessageDialog(null , "Incomplete information");
             new Add_account().setVisible(true);
-            this.dispose();        
+            this.dispose();   
             
         }else{
+            
+           //read file for check namd admin
+           BufferedReader br = null;
+           try{
+               File preRead = new File(fileUser);
+               br = new BufferedReader(new FileReader(preRead));
+               String line = "";
+               int count = 0;
+                while((line = br.readLine()) != null){
+                    String[] str = line.split("/");                   
+                    checkName.add(count , str[0]);
+                    count++;
+                }
+                
+             br.close();
+               
+           }catch(IOException ioe){
+             ioe.printStackTrace();
+           }
+           
+           for(int i = 0 ; i < checkName.size() ; i++){
+               if(user.equals(checkName.get(i))){
+                   while(true){
+                        JTextField newUser = new JTextField();
+                
+                        Object[] message = {"Input new username" , newUser};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Username is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newUserStr = newUser.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newUserStr.equals(user)) {
+                                JOptionPane.showMessageDialog(null, "Change username = " + newUserStr);
+                                user = newUserStr;
+                                break;
+                            }            
+                        }
+                    }
+                   
+               }
+           }
+            
+           //write to file
            BufferedWriter bf =null;
            try{
-               File file = new File("src/data/Username.txt");
+               File file = new File(fileUser);
                bf = new BufferedWriter(new FileWriter(file , true));
                
                bf.write(user+"/"+password+"/"+"Admin"+"/"+firstname+"/"+lastname+"/"+age);
+               bf.write("\n");
                bf.close();
            }catch(Exception e){
                e.printStackTrace();
@@ -245,6 +301,168 @@ public class Add_account extends javax.swing.JFrame {
     private void AddUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AddUsernameActionPerformed
+
+    private void AgeAddKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeAddKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        user = AddUsername.getText();
+        password = AddPassword.getText();
+        
+        firstname = FirstnameAdd.getText();
+        lastname = LastnameAdd.getText();
+        age = AgeAdd.getText();
+        String fileUser = "src/data/Username.txt";
+        List<String> checkName = new ArrayList<String>();
+        if(user == null || password == null || firstname == null || lastname == null || age == null){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
+            new Add_account().setVisible(true);
+            this.dispose();   
+            
+        }else{
+            
+           //read file for check namd admin
+           BufferedReader br = null;
+           try{
+               File preRead = new File(fileUser);
+               br = new BufferedReader(new FileReader(preRead));
+               String line = "";
+               int count = 0;
+                while((line = br.readLine()) != null){
+                    String[] str = line.split("/");                   
+                    checkName.add(count , str[0]);
+                    count++;
+                }
+                
+             br.close();
+               
+           }catch(IOException ioe){
+             ioe.printStackTrace();
+           }
+           
+           for(int i = 0 ; i < checkName.size() ; i++){
+               if(user.equals(checkName.get(i))){
+                   while(true){
+                        JTextField newUser = new JTextField();
+                
+                        Object[] message = {"Input new username" , newUser};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Username is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newUserStr = newUser.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newUserStr.equals(user)) {
+                                JOptionPane.showMessageDialog(null, "Change username = " + newUserStr);
+                                user = newUserStr;
+                                break;
+                            }            
+                        }
+                    }
+                   
+               }
+           }
+            
+           //write to file
+           BufferedWriter bf =null;
+           try{
+               File file = new File(fileUser);
+               bf = new BufferedWriter(new FileWriter(file , true));
+               
+               bf.write(user+"/"+password+"/"+"Admin"+"/"+firstname+"/"+lastname+"/"+age);
+               bf.write("\n");
+               bf.close();
+           }catch(Exception e){
+               e.printStackTrace();
+           } finally {
+			try {
+				bf.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+        }
+        new ACCOUNT_ADMIN().setVisible(true);
+        this.dispose();user = AddUsername.getText();
+        password = AddPassword.getText();
+        
+        firstname = FirstnameAdd.getText();
+        lastname = LastnameAdd.getText();
+        age = AgeAdd.getText();
+        String fileUser1 = "src/data/Username.txt";
+        List<String> checkName1 = new ArrayList<String>();
+        if(user == null || password == null || firstname == null || lastname == null || age == null){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
+            new Add_account().setVisible(true);
+            this.dispose();   
+            
+        }else{
+            
+           //read file for check namd admin
+           BufferedReader br = null;
+           try{
+               File preRead = new File(fileUser1);
+               br = new BufferedReader(new FileReader(preRead));
+               String line = "";
+               int count = 0;
+                while((line = br.readLine()) != null){
+                    String[] str = line.split("/");                   
+                    checkName1.add(count , str[0]);
+                    count++;
+                }
+                
+             br.close();
+               
+           }catch(IOException ioe){
+             ioe.printStackTrace();
+           }
+           
+           for(int i = 0 ; i < checkName1.size() ; i++){
+               if(user.equals(checkName1.get(i))){
+                   while(true){
+                        JTextField newUser = new JTextField();
+                
+                        Object[] message = {"Input new username" , newUser};
+
+                        int option = JOptionPane.showConfirmDialog(null, message, "Username is already taken.", JOptionPane.OK_CANCEL_OPTION);
+                        String newUserStr = newUser.getText();
+                
+                
+                        if (option == JOptionPane.OK_OPTION) {
+                            if (!newUserStr.equals(user)) {
+                                JOptionPane.showMessageDialog(null, "Change username = " + newUserStr);
+                                user = newUserStr;
+                                break;
+                            }            
+                        }
+                    }
+                   
+               }
+           }
+            
+           //write to file
+           BufferedWriter bf =null;
+           try{
+               File file = new File(fileUser);
+               bf = new BufferedWriter(new FileWriter(file , true));
+               
+               bf.write(user+"/"+password+"/"+"Admin"+"/"+firstname+"/"+lastname+"/"+age);
+               bf.write("\n");
+               bf.close();
+           }catch(Exception e){
+               e.printStackTrace();
+           } finally {
+			try {
+				bf.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+        }
+        new ACCOUNT_ADMIN().setVisible(true);
+        this.dispose();
+    }
+    }//GEN-LAST:event_AgeAddKeyPressed
 
     /**
      * @param args the command line arguments

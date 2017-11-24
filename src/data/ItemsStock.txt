@@ -1,2 +1,4 @@
-00001/Best food/Mayonnaise/70/20
-00002/Roza/Ketchup/55/10
+00001/Best food/Mayonnaise/70/90
+00002/Roza/Ketchup/55/90
+59011009/Pakanon Pantisawat/Student/150/2
+00003/Coca-cola/Soda/20/100

@@ -5,6 +5,7 @@
  */
 package homestock;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 
 import java.io.File;
@@ -53,6 +54,11 @@ public class Add_stocks extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         addStock.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
+        addStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addStockKeyPressed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jButton1.setText("ENTER");
@@ -169,6 +175,83 @@ public class Add_stocks extends javax.swing.JFrame {
         
         String convert = "";
         int quantity;
+        
+        if(itemcode == null || itemstocks == null){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
+            new Add_stocks().setVisible(true);
+            this.dispose();
+
+        }else{
+
+            String FILE_ITEMS = "src/data/ItemsStock.txt";
+            try{
+             File file = new File(FILE_ITEMS);
+             BufferedReader reader = new BufferedReader(new FileReader(file));
+            
+             String line = "", oldtext = "",find = "",old = "";
+             while((line = reader.readLine()) != null){
+                    
+                        String[] str = line.split("/");
+                        
+                        if(str[0].equals(itemcode)){
+                            old = str[0] + "/" + str[1] + "/" + str[2] + "/" + str[3] + "/" + str[4];
+                            quantity = Integer.parseInt(str[4]);
+                            quantity += stocks;
+                            
+                            convert = String.valueOf(quantity);
+
+                            find =  line.replace(str[3]+"/"+str[4], str[3]+"/"+convert);
+                        }
+                
+                 oldtext += line + "\r\n";
+                 
+             }
+             reader.close();
+             // replace a word in a file
+             
+             //To replace a line in a file
+             String newtext = oldtext.replaceAll(old, find);
+            
+             FileWriter writer = new FileWriter(FILE_ITEMS);
+             writer.write(newtext);writer.close();
+            
+         }
+            
+         catch (IOException ioe){
+             ioe.printStackTrace();
+         }
+            
+        new ITEMS_ADMIN().setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void backIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIconActionPerformed
+        new ITEMS_ADMIN().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backIconActionPerformed
+
+    private void addStock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStock1ActionPerformed
+
+    }//GEN-LAST:event_addStock1ActionPerformed
+
+    private void addStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addStockKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+                    itemcode = searchCode.getText();
+        itemstocks = addStock.getText();
+        
+        if(itemcode == null || itemstocks == null){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
+            new Add_stocks().setVisible(true);
+            this.dispose(); 
+        }
+        
+        int stocks = Integer.parseInt(itemstocks);
+        
+        String save;
+        
+        String convert = "";
+        int quantity;
         int count = 0;
         
         if(itemcode == null || itemstocks == null){
@@ -178,8 +261,7 @@ public class Add_stocks extends javax.swing.JFrame {
 
         }else{
             
-//            BufferedReader reader = null;
-//            PrintWriter writer = null;
+
             String FILE_ITEMS = "src/data/ItemsStock.txt";
             try{
              File file = new File(FILE_ITEMS);
@@ -217,75 +299,11 @@ public class Add_stocks extends javax.swing.JFrame {
              ioe.printStackTrace();
          }
             
-               
-//                File file = new File(FILE_ITEMS);
-//                File temp = File.createTempFile("file", ".txt", file.getParentFile());
-//                InputStream in = getClass().getResourceAsStream(FILE_ITEMS);
-//                String charset = "UTF-8";
-//                String delete = "foo";
-//                
-//               
-//                reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
-//                writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
-//
-//                while((line = reader.readLine().trim()) != null){
-//                    
-//                    if(count != 0 ){
-//                        String[] str = line.split("/");
-//                        
-//                        if(str[0].equals(itemcode)){
-//                            
-//                            quantity = Integer.parseInt(str[4]);
-//                            quantity += stocks;
-//                            convert = String.valueOf(quantity);
-//                            
-//                           line = line.replace(str[4], convert);
-////                           for(int x = 0 ; x < saveFile.size() ; x++){
-////                               writer.println(saveFile.get(x));
-////                           }
-//                           
-//                           writer.print(line);
-//                           break;
-//                           
-//                        }
-//                        
-//                    }
-//                   
-//                    
-//                }
-//               
-//               file.delete();     
-//               temp.renameTo(file);
-//            }catch(Exception ex){
-//                ex.getStackTrace();
-//                System.out.print(ex);
-//                JOptionPane.showMessageDialog(null , "Incomplete");
-//                new Add_stocks().setVisible(true);
-//                this.dispose();
-//            
-//            }finally {
-//			try { 
-//				reader.close();
-//                                writer.close();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//        }
         new ITEMS_ADMIN().setVisible(true);
         this.dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void backIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIconActionPerformed
-        new ITEMS_ADMIN().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_backIconActionPerformed
-
-    private void addStock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStock1ActionPerformed
-
-    }//GEN-LAST:event_addStock1ActionPerformed
+        }
+    }//GEN-LAST:event_addStockKeyPressed
 
     /**
      * @param args the command line arguments

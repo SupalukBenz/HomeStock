@@ -5,6 +5,7 @@
  */
 package homestock;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 
 import java.io.IOException;
@@ -121,6 +122,11 @@ public class Login extends javax.swing.JFrame {
 
         password.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
         password.setSize(new java.awt.Dimension(80, 26));
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+        });
 
         enterLogin.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         enterLogin.setForeground(new java.awt.Color(102, 102, 102));
@@ -258,12 +264,7 @@ public class Login extends javax.swing.JFrame {
             new Login().setVisible(true);
             this.dispose(); 
         }
-        
-//        if(usernameStr == null && passwordStr == null){
-//            JOptionPane.showMessageDialog(null , "Incomplete information");
-//            new Login().setVisible(true);
-//            this.dispose();        
-//        }
+       
             BufferedReader bf = null;
             try{
                 InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
@@ -295,40 +296,58 @@ public class Login extends javax.swing.JFrame {
 				e.printStackTrace();
 			}
 		}
-//        String FILE_ACCOUNT = "/homestock/data/UsernameAndPassword.txt";
-//        File file = new File(FILE_ACCOUNT);
-//        
-//        try{
-//
-//            InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
-//            
-//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-//            
-//           
-//            String firstLine = br.readLine().trim();
-//            String[] column = firstLine.split(",");
-//            
-//          
-//            //Read File Line By Line 
-//           
-//           
-//            Object[] tableLines = br.lines().toArray();
-//            
-//                for(int i = 0 ; i < tableLines.length ; i++){
-//                    String line = tableLines[i].toString().trim();
-//                    String[] dataRow = line.split("/");
-//                    System.out.print(dataRow.length);
-//                }
-//            
-//         
-//            
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//        }
-        
-      
-        
+     
     }//GEN-LAST:event_enterLoginActionPerformed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        String FILE_ACCOUNT = "/data/Username.txt";
+        String line;
+        int count = 0;
+        usernameStr = username.getText();
+        
+        char[] pw = password.getPassword();
+        passwordStr = new String(pw);
+        
+        if(usernameStr == null || password == null){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
+            new Login().setVisible(true);
+            this.dispose(); 
+        }
+       
+            BufferedReader bf = null;
+            try{
+                InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
+                bf = new BufferedReader(new InputStreamReader(in));
+                
+                while((line = bf.readLine().trim()) != null){
+                   
+                        String[] str = line.split("/");
+                        if(str[0].equals(usernameStr) && str[1].equals(passwordStr)){
+                            
+                            new HomePage().setVisible(true);                           
+                            this.dispose();
+                            break;
+                        }
+                       
+                }
+               
+                     
+               
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null , "Incomplete");
+                new Login().setVisible(true);
+                this.dispose();
+            }finally {
+			try {
+				bf.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments
