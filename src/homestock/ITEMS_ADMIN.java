@@ -6,6 +6,8 @@
 package homestock;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.swing.JFrame;
@@ -63,7 +65,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 240, 230));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon-100px.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon-100px.png"))); // NOI18N
 
         minimize.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         minimize.setForeground(new java.awt.Color(102, 204, 255));
@@ -125,7 +127,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon.setBorder(null);
         backIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +143,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
 
         addItem.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         addItem.setForeground(new java.awt.Color(153, 153, 153));
-        addItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/AddItemIcon.png"))); // NOI18N
+        addItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/AddItemIcon.png"))); // NOI18N
         addItem.setText("Add Item");
         addItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +153,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
 
         cancelItem.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         cancelItem.setForeground(new java.awt.Color(153, 153, 153));
-        cancelItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/CancelIcon.png"))); // NOI18N
+        cancelItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/CancelIcon.png"))); // NOI18N
         cancelItem.setText("Cancel Item");
         cancelItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +171,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(StocksTable);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jLabel6.setText("TOTAL ITEMS");
@@ -194,7 +196,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
 
         AddStocks.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         AddStocks.setForeground(new java.awt.Color(153, 153, 153));
-        AddStocks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/TotalItemsIcon.png"))); // NOI18N
+        AddStocks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/TotalItemsIcon.png"))); // NOI18N
         AddStocks.setText("Add stocks");
         AddStocks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,6 +322,7 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void addItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemActionPerformed
+        
         new Add_Item().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addItemActionPerformed
@@ -334,42 +337,45 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backIconActionPerformed
 
+  
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
         
-        if(x >= 1){
+           
+//        String FILE_ACCOUNT = "/data/ItemsStock.txt";
+          if(x >= 1){
             show.setEnabled(false);
-        }else{    
-        String FILE_ACCOUNT = "/data/ItemsStock.txt";
-        
+        }else{
         try{
+            File file = new File("src/data/ItemsStock.txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+//            InputStream in = getClass().getResourceAsStream("/data/ItemsStock.txt");
+//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
-            InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-
+            StocksTable.removeAll();
             DefaultTableModel tableAccount = (DefaultTableModel)StocksTable.getModel();
             
             //Read File Line By Line
 
-            Object[] tableLines = br.lines().toArray();
+            Object[] tableLines = br.lines().toArray();                   
 
             for(int i = 0 ; i < tableLines.length ; i++){
                 String line = tableLines[i].toString().trim();
+                System.out.println(line);
+
                 String[] dataRow = line.split("/");
                 tableAccount.addRow(dataRow);
                 countTotalItems++;
             }
-            
+            br.close();
 
         }catch(Exception ex){
             ex.printStackTrace();
         }
         convertTotal = String.valueOf(countTotalItems);
         totalItem.setText(convertTotal);
-        }
         x++;
-
+          }
+       
     }//GEN-LAST:event_showActionPerformed
 
     private void AddStocksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStocksActionPerformed

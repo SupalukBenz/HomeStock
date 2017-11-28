@@ -211,7 +211,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/homestock/Photos/HomeStockIcon-100px.png"/>
+                  <Image iconType="3" name="/Photos/HomeStockIcon-100px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -271,7 +271,7 @@
         <Component class="javax.swing.JButton" name="backIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/BackIcon.png"/>
+              <Image iconType="3" name="/Photos/BackIcon.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -306,7 +306,7 @@
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/AddItemIcon.png"/>
+              <Image iconType="3" name="/Photos/AddItemIcon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add Item"/>
           </Properties>
@@ -323,7 +323,7 @@
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/CancelIcon.png"/>
+              <Image iconType="3" name="/Photos/CancelIcon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancel Item"/>
           </Properties>
@@ -388,7 +388,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/Horizontal-Line-Transparent-Background.png"/>
+              <Image iconType="3" name="/Photos/Horizontal-Line-Transparent-Background.png"/>
             </Property>
           </Properties>
         </Component>
@@ -439,7 +439,7 @@
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/TotalItemsIcon.png"/>
+              <Image iconType="3" name="/Photos/TotalItemsIcon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add stocks"/>
           </Properties>
