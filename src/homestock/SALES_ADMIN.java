@@ -6,6 +6,8 @@
 package homestock;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.swing.JFrame;
@@ -72,8 +74,7 @@ public class SALES_ADMIN extends javax.swing.JFrame {
             }
         });
 
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
-        backIcon.setBorder(null);
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backIconActionPerformed(evt);
@@ -98,7 +99,7 @@ public class SALES_ADMIN extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 240, 230));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon-100px.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon-100px.png"))); // NOI18N
 
         minimize.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         minimize.setForeground(new java.awt.Color(102, 204, 255));
@@ -160,7 +161,7 @@ public class SALES_ADMIN extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -195,7 +196,7 @@ public class SALES_ADMIN extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -244,14 +245,15 @@ public class SALES_ADMIN extends javax.swing.JFrame {
         if(x >= 1){
             show.setEnabled(false);
         }else{
-            String FILE_ACCOUNT = "/data/Sales.txt";
+            
             int countTotalItems;
-
             try{
 
-                InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+//                InputStream in = getClass().getResourceAsStream("src/data/Sales.txt");
+//
+//                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            File file = new File("src/data/Sales.txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
 
                 DefaultTableModel tableSales = (DefaultTableModel)salesTable.getModel();
 

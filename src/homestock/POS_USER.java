@@ -82,7 +82,7 @@ public class POS_USER extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 240, 230));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon-100px.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon-100px.png"))); // NOI18N
 
         minimize.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         minimize.setForeground(new java.awt.Color(102, 204, 255));
@@ -144,8 +144,7 @@ public class POS_USER extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
-        backIcon.setBorder(null);
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backIconActionPerformed(evt);
@@ -195,7 +194,7 @@ public class POS_USER extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(stocksTable);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
 
         QtyInput.setFont(new java.awt.Font("Heiti SC", 0, 24)); // NOI18N
 
@@ -294,7 +293,7 @@ public class POS_USER extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(romoveToCard)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addComponent(QtyInput)
                         .addGap(10, 10, 10)
                         .addComponent(backIcon)

@@ -43,7 +43,6 @@ public class HomePage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         ItemsIcon = new javax.swing.JButton();
         AccountIcon = new javax.swing.JButton();
-        HelpIcon = new javax.swing.JLabel();
         LogoutIcon = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -51,6 +50,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         salesIcon = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -59,7 +59,7 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 240, 230));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon-100px.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon-100px.png"))); // NOI18N
 
         minimize.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         minimize.setForeground(new java.awt.Color(102, 204, 255));
@@ -121,7 +121,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Heiti SC", 1, 18)); // NOI18N
         jLabel4.setText("Status");
@@ -129,7 +129,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Heiti SC", 1, 22)); // NOI18N
         jLabel5.setText("ADMIN");
 
-        ItemsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/goodsIcon.png"))); // NOI18N
+        ItemsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/goodsIcon.png"))); // NOI18N
         ItemsIcon.setBorder(null);
         ItemsIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +137,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        AccountIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/AccountIcon.png"))); // NOI18N
+        AccountIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/AccountIcon.png"))); // NOI18N
         AccountIcon.setBorder(null);
         AccountIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,9 +145,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        HelpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HelpIcon.png"))); // NOI18N
-
-        LogoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/LogOutIcon.png"))); // NOI18N
+        LogoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/LogOutIcon.png"))); // NOI18N
         LogoutIcon.setBorder(null);
         LogoutIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +181,14 @@ public class HomePage extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("SALES");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HelpIcon.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -210,18 +216,18 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LogoutIcon)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel9)
-                                .addGap(243, 243, 243)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(HelpIcon)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jLabel11)))))
-                        .addGap(220, 220, 220))
+                                .addGap(287, 287, 287)
+                                .addComponent(jLabel11)
+                                .addGap(258, 258, 258))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(LogoutIcon)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addGap(220, 220, 220))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -246,27 +252,30 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AccountIcon)
-                            .addComponent(salesIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AccountIcon)
+                                    .addComponent(salesIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel10))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel7))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ItemsIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel10))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7))))
+                                .addComponent(jLabel6)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addComponent(LogoutIcon))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ItemsIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LogoutIcon, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(HelpIcon, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -318,6 +327,11 @@ public class HomePage extends javax.swing.JFrame {
         new SALES_ADMIN().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_salesIconActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new HELP_ADMIN().setVisible(true);
+        this.dispose();      
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -356,10 +370,10 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccountIcon;
-    private javax.swing.JLabel HelpIcon;
     private javax.swing.JButton ItemsIcon;
     private javax.swing.JButton LogoutIcon;
     private javax.swing.JButton exit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

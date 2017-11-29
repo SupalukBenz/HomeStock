@@ -138,7 +138,7 @@
         <Component class="javax.swing.JButton" name="backIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/BackIcon.png"/>
+              <Image iconType="3" name="/Photos/BackIcon.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -175,7 +175,7 @@
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/homestock/Photos/TotalItemsIcon.png"/>
+              <Image iconType="3" name="/Photos/TotalItemsIcon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add stocks"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

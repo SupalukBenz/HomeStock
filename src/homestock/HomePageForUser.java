@@ -39,12 +39,12 @@ public class HomePageForUser extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        HelpIcon = new javax.swing.JLabel();
         LogoutIcon = new javax.swing.JButton();
         POSIcon = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jLabel11.setFont(new java.awt.Font("Heiti SC", 1, 30)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(153, 153, 153));
@@ -57,7 +57,7 @@ public class HomePageForUser extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 240, 230));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon-100px.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon-100px.png"))); // NOI18N
 
         minimize1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         minimize1.setForeground(new java.awt.Color(102, 204, 255));
@@ -119,7 +119,7 @@ public class HomePageForUser extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Heiti SC", 1, 18)); // NOI18N
         jLabel4.setText("Status");
@@ -127,9 +127,7 @@ public class HomePageForUser extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Heiti SC", 1, 22)); // NOI18N
         jLabel7.setText("USER");
 
-        HelpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HelpIcon.png"))); // NOI18N
-
-        LogoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/LogOutIcon.png"))); // NOI18N
+        LogoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/LogOutIcon.png"))); // NOI18N
         LogoutIcon.setBorder(null);
         LogoutIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +135,7 @@ public class HomePageForUser extends javax.swing.JFrame {
             }
         });
 
-        POSIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/POSIcon.png"))); // NOI18N
+        POSIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/POSIcon.png"))); // NOI18N
         POSIcon.setAutoscrolls(true);
         POSIcon.setBorder(null);
         POSIcon.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +155,14 @@ public class HomePageForUser extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Heiti SC", 1, 30)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("HELP");
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HelpIcon.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,17 +196,17 @@ public class HomePageForUser extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(441, 441, 441)
+                        .addGap(451, 451, 451)
                         .addComponent(jLabel12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(403, 403, 403)
-                        .addComponent(HelpIcon)))
+                        .addGap(407, 407, 407)
+                        .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -213,17 +219,17 @@ public class HomePageForUser extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel10))
-                        .addGap(54, 54, 54)
-                        .addComponent(HelpIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel7))
-                        .addGap(556, 556, 556))))
+                        .addGap(248, 248, 248)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12)
+                        .addGap(235, 235, 235))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,6 +264,11 @@ public class HomePageForUser extends javax.swing.JFrame {
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoutIconActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new HELP_USER().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,10 +306,10 @@ public class HomePageForUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel HelpIcon;
     private javax.swing.JButton LogoutIcon;
     private javax.swing.JButton POSIcon;
     private javax.swing.JButton exit1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

@@ -44,6 +44,7 @@ public class DeleteAccount extends javax.swing.JFrame {
         DeleteAccount = new javax.swing.JButton();
         deleteAccount = new javax.swing.JButton();
         backIcon1 = new javax.swing.JButton();
+        backIcon2 = new javax.swing.JButton();
 
         backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
         backIcon.setBorder(null);
@@ -79,7 +80,7 @@ public class DeleteAccount extends javax.swing.JFrame {
 
         deleteAccount.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         deleteAccount.setForeground(new java.awt.Color(153, 153, 153));
-        deleteAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/CancelIcon.png"))); // NOI18N
+        deleteAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/CancelIcon.png"))); // NOI18N
         deleteAccount.setText("Delete Account");
         deleteAccount.setBorder(null);
 
@@ -88,6 +89,14 @@ public class DeleteAccount extends javax.swing.JFrame {
         backIcon1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backIcon1ActionPerformed(evt);
+            }
+        });
+
+        backIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
+        backIcon2.setBorder(null);
+        backIcon2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backIcon2ActionPerformed(evt);
             }
         });
 
@@ -111,7 +120,10 @@ public class DeleteAccount extends javax.swing.JFrame {
                         .addComponent(DeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backIcon1)))
+                        .addComponent(backIcon1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(backIcon2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,8 +137,10 @@ public class DeleteAccount extends javax.swing.JFrame {
                     .addComponent(DeleteUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(DeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(backIcon1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backIcon2)
                 .addGap(27, 27, 27))
         );
 
@@ -288,6 +302,11 @@ public class DeleteAccount extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeleteUsernameKeyPressed
 
+    private void backIcon2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon2ActionPerformed
+        new ACCOUNT_ADMIN().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backIcon2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -331,6 +350,7 @@ public class DeleteAccount extends javax.swing.JFrame {
     private javax.swing.JTextField DeleteUsername;
     private javax.swing.JButton backIcon;
     private javax.swing.JButton backIcon1;
+    private javax.swing.JButton backIcon2;
     private javax.swing.JButton deleteAccount;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

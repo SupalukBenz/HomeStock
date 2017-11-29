@@ -7,6 +7,7 @@ package homestock;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.swing.JFrame;
@@ -60,7 +61,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 240, 230));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon-100px.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon-100px.png"))); // NOI18N
 
         minimize.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         minimize.setForeground(new java.awt.Color(102, 204, 255));
@@ -122,8 +123,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
-        backIcon.setBorder(null);
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backIconActionPerformed(evt);
@@ -138,7 +138,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
 
         addAccount.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         addAccount.setForeground(new java.awt.Color(153, 153, 153));
-        addAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/loginIconRegis.png"))); // NOI18N
+        addAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/loginIconRegis.png"))); // NOI18N
         addAccount.setText("Add Account");
         addAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
 
         deleteAccount.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         deleteAccount.setForeground(new java.awt.Color(153, 153, 153));
-        deleteAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/CancelIcon.png"))); // NOI18N
+        deleteAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/CancelIcon.png"))); // NOI18N
         deleteAccount.setText("Delete Account");
         deleteAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +166,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(AccountTable);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/Horizontal-Line-Transparent-Background.png"))); // NOI18N
 
         show.setFont(new java.awt.Font("Heiti SC", 1, 36)); // NOI18N
         show.setForeground(new java.awt.Color(102, 102, 102));
@@ -242,7 +242,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(backIcon)
                         .addGap(53, 53, 53))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -289,21 +289,22 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
         new HomePage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backIconActionPerformed
-
+    
+    
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
        
         if(x >= 1){
             show.setEnabled(false);
         }else{
-        String FILE_ACCOUNT = "/data/Username.txt";
-        File file = new File(FILE_ACCOUNT);
+       
         
         try{
 
-            InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
-            
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-            
+//            InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
+//            
+//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            File file = new File("src/data/Username.txt");
+            BufferedReader br = new BufferedReader(new FileReader(file));
           
             DefaultTableModel tableAccount = (DefaultTableModel)AccountTable.getModel();
             

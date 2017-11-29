@@ -74,7 +74,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
         jLabel3.setText("Home Stock");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/HomeStockIcon.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,7 +100,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        IconLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/IconLogin.png"))); // NOI18N
+        IconLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/IconLogin.png"))); // NOI18N
 
         signin.setFont(new java.awt.Font("Heiti SC", 1, 36)); // NOI18N
         signin.setText("Sign In");
@@ -336,6 +336,7 @@ public class Login extends javax.swing.JFrame {
                
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null , "Incomplete");
+                ex.printStackTrace();
                 new Login().setVisible(true);
                 this.dispose();
             }finally {

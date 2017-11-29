@@ -72,7 +72,7 @@ public class Add_stocks extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("ITEM CODE");
 
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
+        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon.setBorder(null);
         backIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +88,7 @@ public class Add_stocks extends javax.swing.JFrame {
 
         addStock1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         addStock1.setForeground(new java.awt.Color(153, 153, 153));
-        addStock1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/TotalItemsIcon.png"))); // NOI18N
+        addStock1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/TotalItemsIcon.png"))); // NOI18N
         addStock1.setText("Add stocks");
         addStock1.setBorder(null);
         addStock1.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +269,7 @@ public class Add_stocks extends javax.swing.JFrame {
             
              String line = "", oldtext = "",find = "",old = "";
              while((line = reader.readLine()) != null){
-                    if(count != 0 ){
+                    if(count !=  0 ){
                         String[] str = line.split("/");
                         
                         if(str[0].equals(itemcode)){

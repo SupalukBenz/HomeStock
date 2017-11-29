@@ -43,6 +43,7 @@ public class CancelItem extends javax.swing.JFrame {
         CancelItemEnter = new javax.swing.JButton();
         cancelItem = new javax.swing.JButton();
         backIcon = new javax.swing.JButton();
+        backIcon1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -75,7 +76,7 @@ public class CancelItem extends javax.swing.JFrame {
 
         cancelItem.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         cancelItem.setForeground(new java.awt.Color(153, 153, 153));
-        cancelItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/CancelIcon.png"))); // NOI18N
+        cancelItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/CancelIcon.png"))); // NOI18N
         cancelItem.setText("Cancel Item");
         cancelItem.setBorder(null);
 
@@ -87,16 +88,18 @@ public class CancelItem extends javax.swing.JFrame {
             }
         });
 
+        backIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
+        backIcon1.setBorder(null);
+        backIcon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backIcon1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(itemcode, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -107,8 +110,16 @@ public class CancelItem extends javax.swing.JFrame {
                         .addComponent(cancelItem, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backIcon)))
+                        .addComponent(backIcon)
+                        .addGap(28, 28, 28)
+                        .addComponent(backIcon1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(itemcode, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +132,14 @@ public class CancelItem extends javax.swing.JFrame {
                     .addComponent(itemcode, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addComponent(CancelItemEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                .addComponent(backIcon)
-                .addGap(24, 24, 24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(backIcon)
+                        .addGap(75, 75, 75))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(backIcon1)
+                        .addGap(39, 39, 39))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,6 +280,11 @@ public class CancelItem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_itemcodeKeyPressed
 
+    private void backIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon1ActionPerformed
+        new ITEMS_ADMIN().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backIcon1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,6 +324,7 @@ public class CancelItem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelItemEnter;
     private javax.swing.JButton backIcon;
+    private javax.swing.JButton backIcon1;
     private javax.swing.JButton cancelItem;
     private javax.swing.JTextField itemcode;
     private javax.swing.JLabel jLabel1;

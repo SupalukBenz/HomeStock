@@ -91,7 +91,7 @@ public class Add_account extends javax.swing.JFrame {
 
         addAccount.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         addAccount.setForeground(new java.awt.Color(153, 153, 153));
-        addAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/loginIconRegis.png"))); // NOI18N
+        addAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/loginIconRegis.png"))); // NOI18N
         addAccount.setText("Add Account");
         addAccount.setBorder(null);
         addAccount.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +112,7 @@ public class Add_account extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("LAST NAME");
 
-        backIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
+        backIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon1.setBorder(null);
         backIcon1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

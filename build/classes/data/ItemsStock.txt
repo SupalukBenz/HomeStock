@@ -1,4 +1,6 @@
-00001/Best food/Mayonnaise/70/90
-00002/Roza/Ketchup/55/90
-59011009/Pakanon Pantisawat/Student/150/2
+00001/Best food/Mayonnaise/70/60
+00002/Roza/Ketchup/55/80
 00003/Coca-cola/Soda/20/100
+9999/Pakanon Pantisawat/Super Kind and gentleman/180000/11
+6010545773/Thanakrit Daorueng/Fat man/200/1
+B21/st-123/nf-75/25000/18

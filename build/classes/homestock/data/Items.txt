@@ -1,3 +1,0 @@
-Item code,Item name,Description,Price,Stocks
-00001/Best food/Mayonnaise/80/180
-00002/Roza/Ketchup/55/60

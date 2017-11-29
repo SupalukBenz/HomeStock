@@ -1,5 +1,7 @@
 
-package homestock;
+package Main;
+
+import homestock.*;
 
 /**
  *
