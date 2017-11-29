@@ -37,22 +37,12 @@ public class DeleteAccount extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backIcon = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         DeleteUsername = new javax.swing.JTextField();
         DeleteAccount = new javax.swing.JButton();
         deleteAccount = new javax.swing.JButton();
-        backIcon1 = new javax.swing.JButton();
         backIcon2 = new javax.swing.JButton();
-
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
-        backIcon.setBorder(null);
-        backIcon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backIconActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -84,14 +74,6 @@ public class DeleteAccount extends javax.swing.JFrame {
         deleteAccount.setText("Delete Account");
         deleteAccount.setBorder(null);
 
-        backIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
-        backIcon1.setBorder(null);
-        backIcon1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backIcon1ActionPerformed(evt);
-            }
-        });
-
         backIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon2.setBorder(null);
         backIcon2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,9 +101,6 @@ public class DeleteAccount extends javax.swing.JFrame {
                         .addGap(163, 163, 163)
                         .addComponent(DeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backIcon1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(backIcon2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -137,9 +116,7 @@ public class DeleteAccount extends javax.swing.JFrame {
                     .addComponent(DeleteUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(DeleteAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(backIcon1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(backIcon2)
                 .addGap(27, 27, 27))
         );
@@ -158,15 +135,6 @@ public class DeleteAccount extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(500, 650));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIconActionPerformed
-        
-    }//GEN-LAST:event_backIconActionPerformed
-
-    private void backIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon1ActionPerformed
-        new ACCOUNT_ADMIN().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_backIcon1ActionPerformed
 
     private void DeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccountActionPerformed
         
@@ -348,8 +316,6 @@ public class DeleteAccount extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DeleteAccount;
     private javax.swing.JTextField DeleteUsername;
-    private javax.swing.JButton backIcon;
-    private javax.swing.JButton backIcon1;
     private javax.swing.JButton backIcon2;
     private javax.swing.JButton deleteAccount;
     private javax.swing.JLabel jLabel1;

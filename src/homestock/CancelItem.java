@@ -42,7 +42,6 @@ public class CancelItem extends javax.swing.JFrame {
         itemcode = new javax.swing.JTextField();
         CancelItemEnter = new javax.swing.JButton();
         cancelItem = new javax.swing.JButton();
-        backIcon = new javax.swing.JButton();
         backIcon1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,14 +79,6 @@ public class CancelItem extends javax.swing.JFrame {
         cancelItem.setText("Cancel Item");
         cancelItem.setBorder(null);
 
-        backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homestock/Photos/BackIcon.png"))); // NOI18N
-        backIcon.setBorder(null);
-        backIcon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backIconActionPerformed(evt);
-            }
-        });
-
         backIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
         backIcon1.setBorder(null);
         backIcon1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,9 +100,7 @@ public class CancelItem extends javax.swing.JFrame {
                         .addGap(99, 99, 99)
                         .addComponent(cancelItem, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backIcon)
-                        .addGap(28, 28, 28)
+                        .addGap(34, 34, 34)
                         .addComponent(backIcon1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -133,13 +122,8 @@ public class CancelItem extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(CancelItemEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(backIcon)
-                        .addGap(75, 75, 75))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(backIcon1)
-                        .addGap(39, 39, 39))))
+                .addComponent(backIcon1)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,11 +140,6 @@ public class CancelItem extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(500, 650));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIconActionPerformed
-        new ITEMS_ADMIN().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_backIconActionPerformed
 
     private void CancelItemEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelItemEnterActionPerformed
         String FILE_ITEMS = "src/data/ItemsStock.txt";
@@ -323,7 +302,6 @@ public class CancelItem extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelItemEnter;
-    private javax.swing.JButton backIcon;
     private javax.swing.JButton backIcon1;
     private javax.swing.JButton cancelItem;
     private javax.swing.JTextField itemcode;
