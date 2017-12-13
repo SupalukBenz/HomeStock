@@ -296,13 +296,9 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
         if(x >= 1){
             show.setEnabled(false);
         }else{
-       
-        
+
         try{
 
-//            InputStream in = getClass().getResourceAsStream(FILE_ACCOUNT);
-//            
-//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
             File file = new File("src/data/Username.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
           

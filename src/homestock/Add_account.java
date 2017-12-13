@@ -54,7 +54,7 @@ public class Add_account extends javax.swing.JFrame {
     private void initComponents() {
 
         AgeAdd = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        AddAccountEnter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         addAccount = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -70,18 +70,13 @@ public class Add_account extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         AgeAdd.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        AgeAdd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                AgeAddKeyPressed(evt);
-            }
-        });
 
-        jButton1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
-        jButton1.setText("ENTER");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddAccountEnter.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
+        AddAccountEnter.setText("ENTER");
+        AddAccountEnter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddAccountEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddAccountEnterActionPerformed(evt);
             }
         });
 
@@ -94,11 +89,6 @@ public class Add_account extends javax.swing.JFrame {
         addAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/loginIconRegis.png"))); // NOI18N
         addAccount.setText("Add Account");
         addAccount.setBorder(null);
-        addAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAccountActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
@@ -125,11 +115,6 @@ public class Add_account extends javax.swing.JFrame {
         jLabel5.setText("AGE");
 
         AddUsername.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        AddUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddUsernameActionPerformed(evt);
-            }
-        });
 
         AddPassword.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
 
@@ -154,7 +139,7 @@ public class Add_account extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(126, 126, 126)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(AddAccountEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -197,7 +182,7 @@ public class Add_account extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(AgeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddAccountEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(backIcon1)
                 .addContainerGap())
@@ -207,7 +192,7 @@ public class Add_account extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AddAccountEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAccountEnterActionPerformed
         user = AddUsername.getText();
         password = AddPassword.getText();
         
@@ -216,10 +201,9 @@ public class Add_account extends javax.swing.JFrame {
         age = AgeAdd.getText();
         String fileUser = "src/data/Username.txt";
         List<String> checkName = new ArrayList<String>();
-        if(user == null || password == null || firstname == null || lastname == null || age == null){
+        if(user.equals("") || password.equals("") || firstname.equals("") || lastname.equals("") || age.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_account().setVisible(true);
-            this.dispose();   
+            AddAccountEnter.setEnabled(false);
             
         }else{
             
@@ -287,182 +271,12 @@ public class Add_account extends javax.swing.JFrame {
         }
         new ACCOUNT_ADMIN().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void addAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAccountActionPerformed
-
-    }//GEN-LAST:event_addAccountActionPerformed
+    }//GEN-LAST:event_AddAccountEnterActionPerformed
 
     private void backIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon1ActionPerformed
         new ACCOUNT_ADMIN().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backIcon1ActionPerformed
-
-    private void AddUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddUsernameActionPerformed
-
-    private void AgeAddKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgeAddKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-        user = AddUsername.getText();
-        password = AddPassword.getText();
-        
-        firstname = FirstnameAdd.getText();
-        lastname = LastnameAdd.getText();
-        age = AgeAdd.getText();
-        String fileUser = "src/data/Username.txt";
-        List<String> checkName = new ArrayList<String>();
-        if(user == null || password == null || firstname == null || lastname == null || age == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_account().setVisible(true);
-            this.dispose();   
-            
-        }else{
-            
-           //read file for check namd admin
-           BufferedReader br = null;
-           try{
-               File preRead = new File(fileUser);
-               br = new BufferedReader(new FileReader(preRead));
-               String line = "";
-               int count = 0;
-                while((line = br.readLine()) != null){
-                    String[] str = line.split("/");                   
-                    checkName.add(count , str[0]);
-                    count++;
-                }
-                
-             br.close();
-               
-           }catch(IOException ioe){
-             ioe.printStackTrace();
-           }
-           
-           for(int i = 0 ; i < checkName.size() ; i++){
-               if(user.equals(checkName.get(i))){
-                   while(true){
-                        JTextField newUser = new JTextField();
-                
-                        Object[] message = {"Input new username" , newUser};
-
-                        int option = JOptionPane.showConfirmDialog(null, message, "Username is already taken.", JOptionPane.OK_CANCEL_OPTION);
-                        String newUserStr = newUser.getText();
-                
-                
-                        if (option == JOptionPane.OK_OPTION) {
-                            if (!newUserStr.equals(user)) {
-                                JOptionPane.showMessageDialog(null, "Change username = " + newUserStr);
-                                user = newUserStr;
-                                break;
-                            }            
-                        }
-                    }
-                   
-               }
-           }
-            
-           //write to file
-           BufferedWriter bf =null;
-           try{
-               File file = new File(fileUser);
-               bf = new BufferedWriter(new FileWriter(file , true));
-               
-               bf.write(user+"/"+password+"/"+"Admin"+"/"+firstname+"/"+lastname+"/"+age);
-               bf.write("\n");
-               bf.close();
-           }catch(Exception e){
-               e.printStackTrace();
-           } finally {
-			try {
-				bf.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-        }
-        new ACCOUNT_ADMIN().setVisible(true);
-        this.dispose();user = AddUsername.getText();
-        password = AddPassword.getText();
-        
-        firstname = FirstnameAdd.getText();
-        lastname = LastnameAdd.getText();
-        age = AgeAdd.getText();
-        String fileUser1 = "src/data/Username.txt";
-        List<String> checkName1 = new ArrayList<String>();
-        if(user == null || password == null || firstname == null || lastname == null || age == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_account().setVisible(true);
-            this.dispose();   
-            
-        }else{
-            
-           //read file for check namd admin
-           BufferedReader br = null;
-           try{
-               File preRead = new File(fileUser1);
-               br = new BufferedReader(new FileReader(preRead));
-               String line = "";
-               int count = 0;
-                while((line = br.readLine()) != null){
-                    String[] str = line.split("/");                   
-                    checkName1.add(count , str[0]);
-                    count++;
-                }
-                
-             br.close();
-               
-           }catch(IOException ioe){
-             ioe.printStackTrace();
-           }
-           
-           for(int i = 0 ; i < checkName1.size() ; i++){
-               if(user.equals(checkName1.get(i))){
-                   while(true){
-                        JTextField newUser = new JTextField();
-                
-                        Object[] message = {"Input new username" , newUser};
-
-                        int option = JOptionPane.showConfirmDialog(null, message, "Username is already taken.", JOptionPane.OK_CANCEL_OPTION);
-                        String newUserStr = newUser.getText();
-                
-                
-                        if (option == JOptionPane.OK_OPTION) {
-                            if (!newUserStr.equals(user)) {
-                                JOptionPane.showMessageDialog(null, "Change username = " + newUserStr);
-                                user = newUserStr;
-                                break;
-                            }            
-                        }
-                    }
-                   
-               }
-           }
-            
-           //write to file
-           BufferedWriter bf =null;
-           try{
-               File file = new File(fileUser);
-               bf = new BufferedWriter(new FileWriter(file , true));
-               
-               bf.write(user+"/"+password+"/"+"Admin"+"/"+firstname+"/"+lastname+"/"+age);
-               bf.write("\n");
-               bf.close();
-           }catch(Exception e){
-               e.printStackTrace();
-           } finally {
-			try {
-				bf.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-        }
-        new ACCOUNT_ADMIN().setVisible(true);
-        this.dispose();
-    }
-    }//GEN-LAST:event_AgeAddKeyPressed
 
     /**
      * @param args the command line arguments
@@ -500,6 +314,7 @@ public class Add_account extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton AddAccountEnter;
     private javax.swing.JTextField AddPassword;
     public javax.swing.JTextField AddUsername;
     private javax.swing.JTextField AgeAdd;
@@ -507,7 +322,6 @@ public class Add_account extends javax.swing.JFrame {
     private javax.swing.JTextField LastnameAdd;
     private javax.swing.JButton addAccount;
     private javax.swing.JButton backIcon1;
-    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

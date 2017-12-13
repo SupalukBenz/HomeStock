@@ -5,7 +5,7 @@
  */
 package homestock;
 
-import java.awt.event.KeyEvent;
+
 import java.io.BufferedReader;
 
 import java.io.File;
@@ -41,7 +41,7 @@ public class Add_stocks extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         addStock = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        AddStockEnter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         backIcon = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -54,17 +54,12 @@ public class Add_stocks extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         addStock.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        addStock.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addStockKeyPressed(evt);
-            }
-        });
 
-        jButton1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
-        jButton1.setText("ENTER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddStockEnter.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
+        AddStockEnter.setText("ENTER");
+        AddStockEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddStockEnterActionPerformed(evt);
             }
         });
 
@@ -89,13 +84,7 @@ public class Add_stocks extends javax.swing.JFrame {
         addStock1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         addStock1.setForeground(new java.awt.Color(153, 153, 153));
         addStock1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/TotalItemsIcon.png"))); // NOI18N
-        addStock1.setText("Add stocks");
-        addStock1.setBorder(null);
-        addStock1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStock1ActionPerformed(evt);
-            }
-        });
+        addStock1.setText("Add stock");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +110,7 @@ public class Add_stocks extends javax.swing.JFrame {
                         .addComponent(addStock1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(163, 163, 163)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AddStockEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -138,7 +127,7 @@ public class Add_stocks extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(addStock, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddStockEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(backIcon)
                 .addGap(26, 26, 26))
@@ -159,27 +148,20 @@ public class Add_stocks extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AddStockEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStockEnterActionPerformed
         itemcode = searchCode.getText();
         itemstocks = addStock.getText();
         
-        if(itemcode == null || itemstocks == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_stocks().setVisible(true);
-            this.dispose(); 
-        }
-        
         int stocks = Integer.parseInt(itemstocks);
-        
+       
         String save;
         
         String convert = "";
         int quantity;
         
-        if(itemcode == null || itemstocks == null){
+        if(itemcode.equals("") || itemstocks.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_stocks().setVisible(true);
-            this.dispose();
+            AddStockEnter.setEnabled(false);
 
         }else{
 
@@ -189,15 +171,17 @@ public class Add_stocks extends javax.swing.JFrame {
              BufferedReader reader = new BufferedReader(new FileReader(file));
             
              String line = "", oldtext = "",find = "",old = "";
+             boolean check = true;
              while((line = reader.readLine()) != null){
                     
                         String[] str = line.split("/");
                         
                         if(str[0].equals(itemcode)){
+                            check = false;
                             old = str[0] + "/" + str[1] + "/" + str[2] + "/" + str[3] + "/" + str[4];
                             quantity = Integer.parseInt(str[4]);
                             quantity += stocks;
-                            
+                           
                             convert = String.valueOf(quantity);
 
                             find =  line.replace(str[3]+"/"+str[4], str[3]+"/"+convert);
@@ -206,9 +190,14 @@ public class Add_stocks extends javax.swing.JFrame {
                  oldtext += line + "\r\n";
                  
              }
+            
              reader.close();
              // replace a word in a file
-             
+             if(check){
+                JOptionPane.showMessageDialog(null , "Not item code");
+                new Add_stocks().setVisible(true);
+                this.dispose();
+            }
              //To replace a line in a file
              String newtext = oldtext.replaceAll(old, find);
             
@@ -224,86 +213,12 @@ public class Add_stocks extends javax.swing.JFrame {
         new ITEMS_ADMIN().setVisible(true);
         this.dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AddStockEnterActionPerformed
 
     private void backIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIconActionPerformed
         new ITEMS_ADMIN().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backIconActionPerformed
-
-    private void addStock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStock1ActionPerformed
-
-    }//GEN-LAST:event_addStock1ActionPerformed
-
-    private void addStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addStockKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-                    itemcode = searchCode.getText();
-        itemstocks = addStock.getText();
-        
-        if(itemcode == null || itemstocks == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_stocks().setVisible(true);
-            this.dispose(); 
-        }
-        
-        int stocks = Integer.parseInt(itemstocks);
-        
-        String save;
-        
-        String convert = "";
-        int quantity;
-        int count = 0;
-        
-        if(itemcode == null || itemstocks == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_stocks().setVisible(true);
-            this.dispose();
-
-        }else{
-            
-
-            String FILE_ITEMS = "src/data/ItemsStock.txt";
-            try{
-             File file = new File(FILE_ITEMS);
-             BufferedReader reader = new BufferedReader(new FileReader(file));
-            
-             String line = "", oldtext = "",find = "",old = "";
-             while((line = reader.readLine()) != null){
-                    if(count !=  0 ){
-                        String[] str = line.split("/");
-                        
-                        if(str[0].equals(itemcode)){
-                            old = str[0] + "/" + str[1] + "/" + str[2] + "/" + str[3] + "/" + str[4];
-
-                            quantity = Integer.parseInt(str[4]);
-                            quantity += stocks;
-                            convert = String.valueOf(quantity);
-                            find =  line.replace(str[3]+"/"+str[4], str[3]+"/"+convert);
-                        }
-                }
-                 oldtext += line + "\r\n";
-                 count++;
-             }
-             reader.close();
-             // replace a word in a file
-             
-             //To replace a line in a file
-             String newtext = oldtext.replaceAll(old, find);
-            
-             FileWriter writer = new FileWriter(FILE_ITEMS);
-             writer.write(newtext);writer.close();
-            
-         }
-            
-         catch (IOException ioe){
-             ioe.printStackTrace();
-         }
-            
-        new ITEMS_ADMIN().setVisible(true);
-        this.dispose();
-        }
-        }
-    }//GEN-LAST:event_addStockKeyPressed
 
     /**
      * @param args the command line arguments
@@ -341,10 +256,10 @@ public class Add_stocks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddStockEnter;
     private javax.swing.JTextField addStock;
     private javax.swing.JButton addStock1;
     private javax.swing.JButton backIcon;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

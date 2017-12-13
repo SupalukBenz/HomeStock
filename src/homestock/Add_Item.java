@@ -56,7 +56,7 @@ public class Add_Item extends javax.swing.JFrame {
         addDescription = new javax.swing.JTextField();
         addPrice = new javax.swing.JTextField();
         addStock = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        AddItemEnter = new javax.swing.JButton();
         backIcon = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,11 +105,11 @@ public class Add_Item extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
-        jButton1.setText("ENTER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddItemEnter.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
+        AddItemEnter.setText("ENTER");
+        AddItemEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddItemEnterActionPerformed(evt);
             }
         });
 
@@ -154,7 +154,7 @@ public class Add_Item extends javax.swing.JFrame {
                         .addComponent(addItem, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(157, 157, 157)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AddItemEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backIcon)))
@@ -186,7 +186,7 @@ public class Add_Item extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(addStock, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddItemEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backIcon)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -321,7 +321,7 @@ public class Add_Item extends javax.swing.JFrame {
     
     
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AddItemEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddItemEnterActionPerformed
         itemcode = addCode.getText();
         itemname = addName.getText();
         itemprice = addPrice.getText();
@@ -332,20 +332,19 @@ public class Add_Item extends javax.swing.JFrame {
         List<String> checkName = new ArrayList<String>();
         List<String> checkPrice = new ArrayList<String>();
         List<String> checkStock = new ArrayList<String>();
-        if(itemcode == null || itemname == null || itemprice == null || itemdescription == null || itemstocks == null){
+        if(itemcode.equals("") || itemname.equals("") || itemprice.equals("") || itemdescription.equals("") || itemstocks.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_Item().setVisible(true);
-            this.dispose();        
+            AddItemEnter.setEnabled(false);
             
         }else{
             
             //read file for check namd admin
            BufferedReader br = null;
-//           BufferedReader br_name = null;
+
            try{
                File preRead = new File(fileItem);
                br = new BufferedReader(new FileReader(preRead));
-//               br_name = new BufferedReader(new FileReader(preRead));
+
                String line = "";
                int count = 0;
                 while((line = br.readLine()) != null){
@@ -385,7 +384,6 @@ public class Add_Item extends javax.swing.JFrame {
 				bf.close();
                                 System.out.println("bf closed");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -393,7 +391,7 @@ public class Add_Item extends javax.swing.JFrame {
         new ITEMS_ADMIN().setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AddItemEnterActionPerformed
 
     private void addStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addStockKeyPressed
         
@@ -506,6 +504,7 @@ public class Add_Item extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddItemEnter;
     private javax.swing.JTextField addCode;
     private javax.swing.JTextField addDescription;
     private javax.swing.JButton addItem;
@@ -513,7 +512,6 @@ public class Add_Item extends javax.swing.JFrame {
     private javax.swing.JTextField addPrice;
     private javax.swing.JTextField addStock;
     private javax.swing.JButton backIcon;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

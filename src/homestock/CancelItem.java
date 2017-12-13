@@ -54,11 +54,6 @@ public class CancelItem extends javax.swing.JFrame {
         jLabel1.setText("ITEM CODE");
 
         itemcode.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        itemcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemcodeActionPerformed(evt);
-            }
-        });
         itemcode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 itemcodeKeyPressed(evt);
@@ -145,11 +140,10 @@ public class CancelItem extends javax.swing.JFrame {
         String FILE_ITEMS = "src/data/ItemsStock.txt";
         cancelcodeItem = itemcode.getText();
         
-        if(cancelcodeItem == null){
+        if(cancelcodeItem.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
-            new CancelItem().setVisible(true);
-            this.dispose(); 
-        }
+            CancelItemEnter.setEnabled(false);
+        }else{
         
         try {
             File inFile = new File(FILE_ITEMS);
@@ -195,11 +189,8 @@ public class CancelItem extends javax.swing.JFrame {
         }
         new ITEMS_ADMIN().setVisible(true);
         this.dispose();
+        }
     }//GEN-LAST:event_CancelItemEnterActionPerformed
-
-    private void itemcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemcodeActionPerformed
 
     private void itemcodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_itemcodeKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){

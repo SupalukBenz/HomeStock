@@ -8,9 +8,8 @@ package homestock;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -243,15 +242,12 @@ public class SALES_ADMIN extends javax.swing.JFrame {
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
 
         if(x >= 1){
+            JOptionPane.showMessageDialog(null , "Incomplete information");
             show.setEnabled(false);
         }else{
-            
-            int countTotalItems;
+        
             try{
 
-//                InputStream in = getClass().getResourceAsStream("src/data/Sales.txt");
-//
-//                BufferedReader br = new BufferedReader(new InputStreamReader(in));
             File file = new File("src/data/Sales.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
 

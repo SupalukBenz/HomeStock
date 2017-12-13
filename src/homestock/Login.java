@@ -114,11 +114,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         username.setFont(new java.awt.Font("Heiti SC", 0, 22)); // NOI18N
-        username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
-            }
-        });
 
         password.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
         password.setSize(new java.awt.Dimension(80, 26));
@@ -246,10 +241,6 @@ public class Login extends javax.swing.JFrame {
         setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimizeActionPerformed
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
-        
-    }//GEN-LAST:event_usernameActionPerformed
-
     private void enterLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterLoginActionPerformed
         String FILE_ACCOUNT = "/data/Username.txt";
         String line;
@@ -259,11 +250,11 @@ public class Login extends javax.swing.JFrame {
         char[] pw = password.getPassword();
         passwordStr = new String(pw);
         
-        if(usernameStr == null || password == null){
+        if(usernameStr.equals("") || password.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
             new Login().setVisible(true);
             this.dispose(); 
-        }
+        }else{
        
             BufferedReader bf = null;
             try{
@@ -296,6 +287,7 @@ public class Login extends javax.swing.JFrame {
 				e.printStackTrace();
 			}
 		}
+        }
      
     }//GEN-LAST:event_enterLoginActionPerformed
 

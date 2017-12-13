@@ -5,7 +5,6 @@
  */
 package homestock;
 
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,11 +53,6 @@ public class DeleteAccount extends javax.swing.JFrame {
         jLabel1.setText("USERNAME");
 
         DeleteUsername.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        DeleteUsername.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                DeleteUsernameKeyPressed(evt);
-            }
-        });
 
         DeleteAccount.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         DeleteAccount.setText("DELETE");
@@ -135,17 +129,17 @@ public class DeleteAccount extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(500, 650));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+    
 
     private void DeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccountActionPerformed
         
         username = DeleteUsername.getText();
         String FILE_ACCOUNTS = "src/data/Username.txt";
         
-        if(username == null){
+        if(username.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
-            new DeleteAccount().setVisible(true);
-            this.dispose(); 
-        }
+            DeleteAccount.setEnabled(false);
+        }else{
         if(username.equals("Admin")) {
             JOptionPane.showMessageDialog(null , "You can't delete admin account.");
             new DeleteAccount().setVisible(true);
@@ -163,20 +157,23 @@ public class DeleteAccount extends javax.swing.JFrame {
             String lineToRemove = "";
             //Read from the original file and write to the new 
             //unless content matches data to be removed.
-            while ((line = br.readLine()) != null) {
-                
+            int check = 0;
+            while ((line = br.readLine()) != null) {               
                     String[] str = line.split("/");
                     if(str[0].equals(username)){
-                        lineToRemove = str[0]+"/"+str[1]+"/"+str[2]+"/"+str[3]+"/"+str[4]+"/"+str[5];
-                        
+                        lineToRemove = str[0]+"/"+str[1]+"/"+str[2]+"/"+str[3]+"/"+str[4]+"/"+str[5];   
+                        check = 1;
                     }
-                
-                
                 if (!line.trim().equals(lineToRemove)) {
                     pw.println(line);
                     pw.flush();
                 }
                 
+            }
+            if(check == 0){
+                JOptionPane.showMessageDialog(null , "Not Username");
+                new DeleteAccount().setVisible(true);
+                this.dispose(); 
             }
             pw.close();
             br.close();
@@ -201,74 +198,8 @@ public class DeleteAccount extends javax.swing.JFrame {
         this.dispose();
     
         }
+        }
     }//GEN-LAST:event_DeleteAccountActionPerformed
-
-    private void DeleteUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DeleteUsernameKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-        username = DeleteUsername.getText();
-        String FILE_ACCOUNTS = "src/data/Username.txt";
-        
-        if(username == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new DeleteAccount().setVisible(true);
-            this.dispose(); 
-        }
-        if(username.equals("Admin")) {
-            JOptionPane.showMessageDialog(null , "You can't delete admin account.");
-            new DeleteAccount().setVisible(true);
-            this.dispose();
-        }else{
-        
-          try {
-            File inFile = new File(FILE_ACCOUNTS);
-            
-            //Construct the new file that will later be renamed to the original filename. 
-            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
-            BufferedReader br = new BufferedReader(new FileReader(FILE_ACCOUNTS));
-            PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-            String line ;
-            String lineToRemove = "";
-            //Read from the original file and write to the new 
-            //unless content matches data to be removed.
-            while ((line = br.readLine()) != null) {
-                
-                    String[] str = line.split("/");
-                    if(str[0].equals(username)){
-                        lineToRemove = str[0]+"/"+str[1]+"/"+str[2]+"/"+str[3]+"/"+str[4]+"/"+str[5];
-                        
-                    }
-                
-                
-                if (!line.trim().equals(lineToRemove)) {
-                    pw.println(line);
-                    pw.flush();
-                }
-                
-            }
-            pw.close();
-            br.close();
- 
-            //Delete the original file
-            if (!inFile.delete()) {
-                System.out.println("Could not delete file");
-                return;
-            }
-            //Rename the new file to the filename the original file had.
-            if (!tempFile.renameTo(inFile))
-                System.out.println("Could not rename file");
- 
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
-        
-        new ACCOUNT_ADMIN().setVisible(true);
-        this.dispose();
-        }
-        }
-    }//GEN-LAST:event_DeleteUsernameKeyPressed
 
     private void backIcon2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon2ActionPerformed
         new ACCOUNT_ADMIN().setVisible(true);

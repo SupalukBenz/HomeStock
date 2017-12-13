@@ -199,22 +199,12 @@ public class POS_USER extends javax.swing.JFrame {
         QtyInput.setFont(new java.awt.Font("Heiti SC", 0, 24)); // NOI18N
 
         searchItem.setFont(new java.awt.Font("Heiti SC", 0, 24)); // NOI18N
-        searchItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchItemActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("Item code");
 
         qtyItem.setFont(new java.awt.Font("Heiti SC", 0, 24)); // NOI18N
-        qtyItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qtyItemActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
@@ -325,18 +315,11 @@ public class POS_USER extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
-    private void searchItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchItemActionPerformed
-        
-    }//GEN-LAST:event_searchItemActionPerformed
-
     private void addToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartActionPerformed
         
         itemCode = searchItem.getText();
         quantity = qtyItem.getText();
-        
-       
-        quantityInt = Integer.parseInt(quantity);
-        
+
         //read file for search item code and get data
         BufferedReader br = null;
         BufferedReader check = null;
@@ -345,8 +328,12 @@ public class POS_USER extends javax.swing.JFrame {
         
         int y = 0;   
             //Read File Line By Line 
+       if(itemCode.equals("") || quantity.equals("")){
+           JOptionPane.showMessageDialog(null , "Incomplete information");
+           addToCart.setEnabled(false);
+       }else{
        try{
-            
+            quantityInt = Integer.parseInt(quantity);
             InputStream in = getClass().getResourceAsStream(FILE_ITEMS);
             br = new BufferedReader(new InputStreamReader(in));
             Object[] tableLines = br.lines().toArray();
@@ -419,10 +406,6 @@ public class POS_USER extends javax.swing.JFrame {
 			}
 		}
         
-        
-        
-        
-        
            //edit quantity in file text
            
            String FILE_ITEMForEdit = "src/data/ItemsStock.txt";
@@ -463,14 +446,10 @@ public class POS_USER extends javax.swing.JFrame {
              ioe.printStackTrace();
          }
            
-          
+       }  
     }//GEN-LAST:event_addToCartActionPerformed
 
    
-    private void qtyItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtyItemActionPerformed
-        
-    }//GEN-LAST:event_qtyItemActionPerformed
-
     private void backIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIconActionPerformed
         new HomePageForUser().setVisible(true);
         this.dispose();
@@ -493,9 +472,7 @@ public class POS_USER extends javax.swing.JFrame {
         
         BufferedWriter bw_sales = null;
         
-        try{
-                
-               File file_sales = new File(FILE_SALES);
+        try{  
                
                double amount = 0;
                

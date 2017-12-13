@@ -178,11 +178,6 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
 
         totalItem.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         totalItem.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        totalItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalItemActionPerformed(evt);
-            }
-        });
 
         show.setFont(new java.awt.Font("Heiti SC", 1, 36)); // NOI18N
         show.setForeground(new java.awt.Color(102, 102, 102));
@@ -339,17 +334,13 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
 
   
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
-        
-           
-//        String FILE_ACCOUNT = "/data/ItemsStock.txt";
+
           if(x >= 1){
             show.setEnabled(false);
         }else{
         try{
             File file = new File("src/data/ItemsStock.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
-//            InputStream in = getClass().getResourceAsStream("/data/ItemsStock.txt");
-//            BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
             StocksTable.removeAll();
             DefaultTableModel tableAccount = (DefaultTableModel)StocksTable.getModel();
@@ -382,10 +373,6 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
          new Add_stocks().setVisible(true);
          this.dispose();
     }//GEN-LAST:event_AddStocksActionPerformed
-
-    private void totalItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalItemActionPerformed
-        
-    }//GEN-LAST:event_totalItemActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         new ITEMS_ADMIN().setVisible(true);
