@@ -5,6 +5,7 @@
  */
 package homestock;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -128,6 +129,11 @@ public class Login extends javax.swing.JFrame {
 
         password.setFont(new java.awt.Font("Lucida Grande", 0, 22)); // NOI18N
         password.setSize(new java.awt.Dimension(80, 26));
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+        });
 
         enterLogin.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         enterLogin.setForeground(new java.awt.Color(102, 102, 102));
@@ -248,7 +254,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeActionPerformed
 
     private void enterLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterLoginActionPerformed
-        String FILE_ACCOUNT = "/data/Username.txt";
+       
+        loginForAdmin();
+     
+    }//GEN-LAST:event_enterLoginActionPerformed
+
+    void loginForAdmin(){
+         String FILE_ACCOUNT = "/data/Username.txt";
         String line;
         int count = 0;
         usernameStr = username.getText();
@@ -294,13 +306,18 @@ public class Login extends javax.swing.JFrame {
 			}
 		}
         }
-     
-    }//GEN-LAST:event_enterLoginActionPerformed
-
+    }
+    
     private void backIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon1ActionPerformed
         new HomePageForUser().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backIcon1ActionPerformed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            loginForAdmin();
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments
