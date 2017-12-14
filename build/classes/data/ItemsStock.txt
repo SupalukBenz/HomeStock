@@ -1,6 +1,7 @@
-00001/Best food/Mayonnaise/70/50
+00001/Best food/Mayonnaise/70/40
 00002/Roza/Ketchup/55/80
 00003/Coca-cola/Soda/20/100
 9999/Pakanon Pantisawat/Super Kind and gentleman/180000/11
 6010545773/Thanakrit Daorueng/Fat man/200/1
 B21/st-123/nf-75/25000/18
+Test/test/test/10/1

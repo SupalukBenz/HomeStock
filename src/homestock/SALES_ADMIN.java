@@ -252,7 +252,7 @@ public class SALES_ADMIN extends javax.swing.JFrame {
             BufferedReader br = new BufferedReader(new FileReader(file));
 
                 DefaultTableModel tableSales = (DefaultTableModel)salesTable.getModel();
-
+                salesTable.setEnabled(false);
                 //Read File Line By Line
 
                 Object[] tableLines = br.lines().toArray();

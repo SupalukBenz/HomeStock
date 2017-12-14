@@ -99,11 +99,6 @@ public class Add_Item extends javax.swing.JFrame {
         addPrice.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
 
         addStock.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        addStock.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addStockKeyPressed(evt);
-            }
-        });
 
         AddItemEnter.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         AddItemEnter.setText("ENTER");
@@ -212,9 +207,9 @@ public class Add_Item extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backIconActionPerformed
 
-    private void checkAddName(List<String> checkName , int i){
+    private void checkAddName(List<String> checkName , int i , String name){
              
-               if(itemname.equals(checkName.get(i))){
+               if(name.equals(checkName.get(i))){
                     while(true){
                         JTextField newName = new JTextField();
                 
@@ -225,9 +220,9 @@ public class Add_Item extends javax.swing.JFrame {
                 
                 
                         if (option == JOptionPane.OK_OPTION) {
-                            if (!newNameStr.equals(itemname)) {
+                            if (!newNameStr.equals(name)) {
                                 JOptionPane.showMessageDialog(null, "Change item name = " + newNameStr);
-                                itemname = newNameStr;
+                                name = newNameStr;
                                 break;
                             }            
                         }
@@ -238,9 +233,9 @@ public class Add_Item extends javax.swing.JFrame {
         
     }
     
-    private void checkAddCode(List<String> checkItem , int i){
+    private void checkAddCode(List<String> checkItem , int i , String code){
         
-               if(itemcode.equals(checkItem.get(i))){
+               if(code.equals(checkItem.get(i))){
                    while(true){
                         JTextField newCode = new JTextField();
                 
@@ -251,9 +246,9 @@ public class Add_Item extends javax.swing.JFrame {
                 
                 
                         if (option == JOptionPane.OK_OPTION) {
-                            if (!newCodeStr.equals(itemcode)) {
+                            if (!newCodeStr.equals(code)) {
                                 JOptionPane.showMessageDialog(null, "Change item code = " + newCodeStr);
-                                itemcode = newCodeStr;
+                                code = newCodeStr;
                                 break;
                             }            
                         }
@@ -265,8 +260,8 @@ public class Add_Item extends javax.swing.JFrame {
            
     }
     
-    private void checkAddPrice(List<String> checkPrice , int i){
-               double itemPriceDou = Double.parseDouble(itemprice);
+    private void checkAddPrice(String price){
+               double itemPriceDou = Double.parseDouble(price);
                if(itemPriceDou < 0){
                    while(true){
                         JTextField newPrice = new JTextField();
@@ -280,7 +275,7 @@ public class Add_Item extends javax.swing.JFrame {
                         if (option == JOptionPane.OK_OPTION) {
                             if (newPriceDou > 0) {
                                 JOptionPane.showMessageDialog(null, "Change item price = " + newPriceStr);
-                                itemprice = newPriceStr;
+                                price = newPriceStr;
                                 break;
                             }            
                         }
@@ -292,8 +287,8 @@ public class Add_Item extends javax.swing.JFrame {
            
     }
     
-    private void checkAddStock(List<String> checkStock , int i){
-            double itemStockDou = Double.parseDouble(itemstocks);
+    private void checkAddStock( String stock){
+            double itemStockDou = Double.parseDouble(stock);
                if(itemStockDou < 0){
                    while(true){
                         JTextField newStock = new JTextField();
@@ -307,7 +302,7 @@ public class Add_Item extends javax.swing.JFrame {
                         if (option == JOptionPane.OK_OPTION) {
                             if (newStockDou > 0) {
                                 JOptionPane.showMessageDialog(null, "Change item stock = " + newStockStr);
-                                itemstocks = newStockStr;
+                                stock = newStockStr;
                                 break;
                             }            
                         }
@@ -330,8 +325,7 @@ public class Add_Item extends javax.swing.JFrame {
         String fileItem = "src/data/ItemsStock.txt";
         List<String> checkItem = new ArrayList<String>();
         List<String> checkName = new ArrayList<String>();
-        List<String> checkPrice = new ArrayList<String>();
-        List<String> checkStock = new ArrayList<String>();
+        
         if(itemcode.equals("") || itemname.equals("") || itemprice.equals("") || itemdescription.equals("") || itemstocks.equals("")){
             JOptionPane.showMessageDialog(null , "Incomplete information");
             AddItemEnter.setEnabled(false);
@@ -351,8 +345,7 @@ public class Add_Item extends javax.swing.JFrame {
                     String[] str = line.split("/");                   
                     checkItem.add(count , str[0]);
                     checkName.add(count , str[1]);
-                    checkPrice.add(count , str[3]);
-                    checkStock.add(count , str[4]);
+                    
                     count++;
                 }
                 
@@ -363,10 +356,10 @@ public class Add_Item extends javax.swing.JFrame {
            }
            
            for(int i = 0 ; i < checkItem.size(); i++){
-               checkAddCode(checkItem , i);
-               checkAddName(checkName , i);
-               checkAddPrice(checkPrice , i);
-               checkAddStock(checkStock , i);
+               checkAddCode(checkItem , i , itemcode);
+               checkAddName(checkName , i , itemname);
+               checkAddPrice(itemprice);
+               checkAddStock(itemstocks);
            }
         
            BufferedWriter bf =null;
@@ -392,80 +385,6 @@ public class Add_Item extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_AddItemEnterActionPerformed
-
-    private void addStockKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addStockKeyPressed
-        
-        itemcode = addCode.getText();
-        itemname = addName.getText();
-        itemprice = addPrice.getText();
-        itemdescription = addDescription.getText();
-        itemstocks = addStock.getText();
-        String fileItem = "src/data/ItemsStock.txt";
-        List<String> checkItem = new ArrayList<String>();
-        List<String> checkName = new ArrayList<String>();
-        List<String> checkPrice = new ArrayList<String>();
-        List<String> checkStock = new ArrayList<String>();
-        if(itemcode == null || itemname == null || itemprice == null || itemdescription == null || itemstocks == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new Add_Item().setVisible(true);
-            this.dispose();        
-            
-        }else{
-            
-            //read file for check namd admin
-           BufferedReader br = null;
-//           BufferedReader br_name = null;
-           try{
-               File preRead = new File(fileItem);
-               br = new BufferedReader(new FileReader(preRead));
-//               br_name = new BufferedReader(new FileReader(preRead));
-               String line = "";
-               int count = 0;
-                while((line = br.readLine()) != null){
-                    String[] str = line.split("/");                   
-                    checkItem.add(count , str[0]);
-                    checkName.add(count , str[1]);
-                    checkPrice.add(count , str[3]);
-                    checkStock.add(count , str[4]);
-                    count++;
-                }
-                
-             br.close();
-               
-           }catch(IOException ioe){
-             ioe.printStackTrace();
-           }
-           
-           for(int i = 0 ; i < checkItem.size(); i++){
-               checkAddCode(checkItem , i);
-               checkAddName(checkName , i);
-               checkAddPrice(checkPrice , i);
-               checkAddStock(checkStock , i);
-           }
-        
-           BufferedWriter bf =null;
-           try{
-               File file = new File("src/data/ItemsStock.txt");
-               bf = new BufferedWriter(new FileWriter(file , true));
-               
-               bf.write(itemcode+"/"+itemname+"/"+itemdescription+"/"+itemprice+"/"+itemstocks);
-               bf.write("\n");
-               bf.close();
-           }catch(Exception e){
-               e.printStackTrace();
-           } finally {
-			try {
-				bf.close();
-                                System.out.println("bf closed");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-        }
-        new ITEMS_ADMIN().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_addStockKeyPressed
 
     /**
      * @param args the command line arguments

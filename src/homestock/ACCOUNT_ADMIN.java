@@ -8,8 +8,6 @@ package homestock;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
@@ -303,7 +301,7 @@ public class ACCOUNT_ADMIN extends javax.swing.JFrame {
             BufferedReader br = new BufferedReader(new FileReader(file));
           
             DefaultTableModel tableAccount = (DefaultTableModel)AccountTable.getModel();
-            
+            AccountTable.setEnabled(false);
             //Read File Line By Line 
             
             Object[] tableLines = br.lines().toArray();
