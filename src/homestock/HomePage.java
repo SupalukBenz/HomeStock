@@ -14,8 +14,6 @@ import javax.swing.JFrame;
  */
 public class HomePage extends javax.swing.JFrame {
     
-   
-   
     /**
      * Creates new form HomePage
      */

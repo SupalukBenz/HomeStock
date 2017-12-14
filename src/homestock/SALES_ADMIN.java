@@ -247,7 +247,6 @@ public class SALES_ADMIN extends javax.swing.JFrame {
         }else{
         
             try{
-
             File file = new File("src/data/Sales.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
 

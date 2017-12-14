@@ -337,7 +337,6 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
         new HomePage().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backIconActionPerformed
-
   
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
 

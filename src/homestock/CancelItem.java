@@ -5,7 +5,6 @@
  */
 package homestock;
 
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -141,6 +140,7 @@ public class CancelItem extends javax.swing.JFrame {
         }else{
         
         try {
+            boolean check = true;
             File inFile = new File(FILE_ITEMS);
             int count = 0;
             //Construct the new file that will later be renamed to the original filename. 
@@ -155,6 +155,7 @@ public class CancelItem extends javax.swing.JFrame {
                 if(count != 0){
                     String[] str = line.split("/");
                     if(str[0].equals(cancelcodeItem)){
+                        check = false;
                         lineToRemove = str[0]+"/"+str[1]+"/"+str[2]+"/"+str[3]+"/"+str[4];
                     }
                 }
@@ -167,7 +168,11 @@ public class CancelItem extends javax.swing.JFrame {
             }
             pw.close();
             br.close();
- 
+            if(check){
+                JOptionPane.showMessageDialog(null , "Not item code");
+                new Add_stocks().setVisible(true);
+                this.dispose();
+            }
             //Delete the original file
             if (!inFile.delete()) {
                 System.out.println("Could not delete file");

@@ -132,7 +132,7 @@ public class DeleteAccount extends javax.swing.JFrame {
     
 
     private void DeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccountActionPerformed
-        
+     
         username = DeleteUsername.getText();
         String FILE_ACCOUNTS = "src/data/Username.txt";
         
@@ -140,6 +140,7 @@ public class DeleteAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null , "Incomplete information");
             DeleteAccount.setEnabled(false);
         }else{
+            
         if(username.equals("Admin")) {
             JOptionPane.showMessageDialog(null , "You can't delete admin account.");
             new DeleteAccount().setVisible(true);

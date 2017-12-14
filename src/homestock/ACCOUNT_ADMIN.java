@@ -10,14 +10,12 @@ import java.io.File;
 import java.io.FileReader;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Supaluk Jaroensuk
  */
 public class ACCOUNT_ADMIN extends javax.swing.JFrame {
     private int x = 0;
-   
     /**
      * Creates new form ITEMS_ADMIN
      */

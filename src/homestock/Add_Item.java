@@ -5,7 +5,6 @@
  */
 package homestock;
 
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

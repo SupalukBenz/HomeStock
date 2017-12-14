@@ -255,8 +255,7 @@ public class Login extends javax.swing.JFrame {
 
     private void enterLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterLoginActionPerformed
        
-        loginForAdmin();
-     
+        loginForAdmin();   
     }//GEN-LAST:event_enterLoginActionPerformed
 
     void loginForAdmin(){

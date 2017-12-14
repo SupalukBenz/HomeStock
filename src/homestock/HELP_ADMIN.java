@@ -124,7 +124,7 @@ public class HELP_ADMIN extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/AccountIcon.png"))); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Heiti SC", 1, 22)); // NOI18N
-        jLabel5.setText("USER");
+        jLabel5.setText("ADMIN");
 
         jLabel4.setFont(new java.awt.Font("Heiti SC", 1, 18)); // NOI18N
         jLabel4.setText("Status");

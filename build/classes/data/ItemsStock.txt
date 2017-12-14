@@ -3,3 +3,4 @@
 00003/Coca-cola/Soda/20/100
 00004/Bread/White bread/50/100
 00005/Flour/Wheat flour/120/490
+00006/Spiral-Cut Ham/Ham/90/310

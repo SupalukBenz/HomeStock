@@ -288,7 +288,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Heiti SC" size="22" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="USER"/>
+            <Property name="text" type="java.lang.String" value="ADMIN"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

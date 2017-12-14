@@ -19,7 +19,6 @@ public class HELP_USER extends javax.swing.JFrame {
     public HELP_USER() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

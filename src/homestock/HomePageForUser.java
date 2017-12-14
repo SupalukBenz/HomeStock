@@ -6,7 +6,6 @@
 package homestock;
 
 import javax.swing.JFrame;
-
 /**
  *
  * @author Supaluk Jaroensuk

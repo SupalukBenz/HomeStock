@@ -319,7 +319,7 @@ public class POS_USER extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void addToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartActionPerformed
-        
+       
         itemCode = searchItem.getText();
         quantity = qtyItem.getText();
 
@@ -331,8 +331,8 @@ public class POS_USER extends javax.swing.JFrame {
         
             //Read File Line By Line 
        if(itemCode.equals("") || quantity.equals("")){
-          
-        if(itemCode.equals("")){
+        
+            if(itemCode.equals("")){
                   while(true){
                   JTextField item = new JTextField();
                   Object[] message = {"Item code :", item,};
