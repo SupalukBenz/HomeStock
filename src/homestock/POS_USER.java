@@ -145,6 +145,7 @@ public class POS_USER extends javax.swing.JFrame {
         );
 
         backIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
+        backIcon.setBorder(null);
         backIcon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backIconActionPerformed(evt);
@@ -285,7 +286,7 @@ public class POS_USER extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(romoveToCard)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addComponent(QtyInput)
                         .addGap(10, 10, 10)
                         .addComponent(backIcon)
@@ -324,16 +325,46 @@ public class POS_USER extends javax.swing.JFrame {
 
         //read file for search item code and get data
         BufferedReader br = null;
-        BufferedReader check = null;
-        String checkStr = null;
-        String FILE_ITEMS = "/data/ItemsStock.txt";
         
-        int y = 0;   
+        String FILE_ITEMS = "/data/ItemsStock.txt";
+        int y = 0;
+        
             //Read File Line By Line 
        if(itemCode.equals("") || quantity.equals("")){
-           JOptionPane.showMessageDialog(null , "Incomplete information");
-           addToCart.setEnabled(false);
-       }else{
+          
+        if(itemCode.equals("")){
+                  while(true){
+                  JTextField item = new JTextField();
+                  Object[] message = {"Item code :", item,};
+                  int option = JOptionPane.showConfirmDialog(null, message, "Please,fill out the item code", JOptionPane.OK_CANCEL_OPTION);
+                  String newItem = item.getText();
+                 
+                  if (option == JOptionPane.OK_OPTION) {
+                      if(!newItem.equals("")) {
+                          itemCode = newItem;
+                          break;
+                      }                    
+                  }
+              }
+          }
+          
+        if(quantity.equals("")){
+            while(true){
+                  JTextField qty = new JTextField();
+                  Object[] message = {"Item quantity :", qty,};
+                  int option = JOptionPane.showConfirmDialog(null, message, "Please,fill out the item qty", JOptionPane.OK_CANCEL_OPTION);
+                  String newQty = qty.getText();
+                  
+                  if (option == JOptionPane.OK_OPTION) {
+                      if(!newQty.equals("")) {
+                          quantity = newQty;
+                          break;
+                      }                    
+                  }
+              }
+          }  
+          
+       }
        try{
             quantityInt = Integer.parseInt(quantity);
             InputStream in = getClass().getResourceAsStream(FILE_ITEMS);
@@ -448,7 +479,7 @@ public class POS_USER extends javax.swing.JFrame {
              ioe.printStackTrace();
          }
            
-       }  
+       
     }//GEN-LAST:event_addToCartActionPerformed
 
    

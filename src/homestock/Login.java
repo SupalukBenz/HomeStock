@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        backIcon1 = new javax.swing.JButton();
         IconLogin = new javax.swing.JLabel();
         signin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -73,6 +74,14 @@ public class Login extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/HomeStockIcon.png"))); // NOI18N
 
+        backIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/BackIcon.png"))); // NOI18N
+        backIcon1.setBorder(null);
+        backIcon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backIcon1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -84,7 +93,10 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(backIcon1)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -94,7 +106,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backIcon1)
+                .addGap(14, 14, 14))
         );
 
         IconLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/IconLogin.png"))); // NOI18N
@@ -283,6 +297,11 @@ public class Login extends javax.swing.JFrame {
      
     }//GEN-LAST:event_enterLoginActionPerformed
 
+    private void backIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon1ActionPerformed
+        new HomePageForUser().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backIcon1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -301,6 +320,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackgroundWhite;
     private javax.swing.JLabel IconLogin;
+    private javax.swing.JButton backIcon1;
     private javax.swing.JButton enterLogin;
     private javax.swing.JButton exit;
     private javax.swing.JButton jButton2;
