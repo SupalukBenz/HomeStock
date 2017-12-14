@@ -54,11 +54,6 @@ public class CancelItem extends javax.swing.JFrame {
         jLabel1.setText("ITEM CODE");
 
         itemcode.setFont(new java.awt.Font("Heiti SC", 0, 18)); // NOI18N
-        itemcode.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                itemcodeKeyPressed(evt);
-            }
-        });
 
         CancelItemEnter.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         CancelItemEnter.setText("ENTER");
@@ -191,64 +186,6 @@ public class CancelItem extends javax.swing.JFrame {
         this.dispose();
         }
     }//GEN-LAST:event_CancelItemEnterActionPerformed
-
-    private void itemcodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_itemcodeKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String FILE_ITEMS = "src/data/ItemsStock.txt";
-        cancelcodeItem = itemcode.getText();
-        
-        if(cancelcodeItem == null){
-            JOptionPane.showMessageDialog(null , "Incomplete information");
-            new CancelItem().setVisible(true);
-            this.dispose(); 
-        }
-        
-        try {
-            File inFile = new File(FILE_ITEMS);
-            int count = 0;
-            //Construct the new file that will later be renamed to the original filename. 
-            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
-            BufferedReader br = new BufferedReader(new FileReader(FILE_ITEMS));
-            PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
-            String line ;
-            String lineToRemove = "";
-            //Read from the original file and write to the new 
-            //unless content matches data to be removed.
-            while ((line = br.readLine()) != null) {
-                if(count != 0){
-                    String[] str = line.split("/");
-                    if(str[0].equals(cancelcodeItem)){
-                        lineToRemove = str[0]+"/"+str[1]+"/"+str[2]+"/"+str[3]+"/"+str[4];
-                    }
-                }
-                
-                if (!line.trim().equals(lineToRemove)) {
-                    pw.println(line);
-                    pw.flush();
-                }
-                count++;
-            }
-            pw.close();
-            br.close();
- 
-            //Delete the original file
-            if (!inFile.delete()) {
-                System.out.println("Could not delete file");
-                return;
-            }
-            //Rename the new file to the filename the original file had.
-            if (!tempFile.renameTo(inFile))
-                System.out.println("Could not rename file");
- 
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        new ITEMS_ADMIN().setVisible(true);
-        this.dispose();
-        }
-    }//GEN-LAST:event_itemcodeKeyPressed
 
     private void backIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backIcon1ActionPerformed
         new ITEMS_ADMIN().setVisible(true);
