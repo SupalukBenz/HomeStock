@@ -158,7 +158,7 @@ public class HELP_ADMIN extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Heiti SC", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel13.setText("Adding,removing and add item to stock");
+        jLabel13.setText("Adding ,removing items and adding stock");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
