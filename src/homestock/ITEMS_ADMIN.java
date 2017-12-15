@@ -348,10 +348,11 @@ public class ITEMS_ADMIN extends javax.swing.JFrame {
             BufferedReader br = new BufferedReader(new FileReader(file));
 
             StocksTable.removeAll();
+            
             DefaultTableModel tableAccount = (DefaultTableModel)StocksTable.getModel();
+            
             StocksTable.setEnabled(false);
             //Read File Line By Line
-
             Object[] tableLines = br.lines().toArray();                   
 
             for(int i = 0 ; i < tableLines.length ; i++){

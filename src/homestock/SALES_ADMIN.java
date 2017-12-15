@@ -91,7 +91,7 @@ public class SALES_ADMIN extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Item name", "Quantity", "Price", "Total"
+                "Date", "Item code", "Item name", "Quantity", "Price", "Total"
             }
         ));
         jScrollPane1.setViewportView(salesTable);

@@ -259,7 +259,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_enterLoginActionPerformed
 
     void loginForAdmin(){
-         String FILE_ACCOUNT = "/data/Username.txt";
+        String FILE_ACCOUNT = "/data/Username.txt";
         String line;
         int count = 0;
         usernameStr = username.getText();
@@ -289,8 +289,7 @@ public class Login extends javax.swing.JFrame {
                         }
                        
                 }
-               
-                     
+                                    
                
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null , "Incomplete");
